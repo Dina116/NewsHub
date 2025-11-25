@@ -1,97 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📱 News Hub
+A React Native News Application  
 
-# Getting Started
+News Hub is a modern, clean, and fast mobile news application built with **React Native (TypeScript)**.  
+It allows users to know the latest news, open full article details, and save their favourite articles easily.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 🚀 Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 🔐 Authentication System**
+A complete authentication system built with Firebase Authentication to allow users to create secure accounts and log in.
+- Sign Up Screen:
+    - Allows new users to create an account using an email, password, and username.
+    - Includes input validation to display alerts for errors (e.g., email already in use).
+    - Updates the user's profile with their displayName immediately after account creation.
+- Login Screen:
+  - Allows registered users to sign in to their accounts.
+  - Validates credentials and provides clear error messages.
+  - Automatically navigates the user to the home screen upon successful login.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 📰 **Top Headlines**
+- Displays the latest breaking news from trusted sources.
+- Clean and responsive UI.
 
-```sh
-# Using npm
-npm start
+### 🗂️ **Everything News**
+- A separate section that lists more articles.
+- Implemented using a regular `FlatList`.
+- Helps users explore more general content easily.
 
-# OR using Yarn
-yarn start
+### 📄 **Article Details**
+When the user taps any article:
+- image  
+- Title  
+- Description  
+- Button to **Back to the Home Screen**
+- Button to **Add to Favourite**
+
+### ❤️ **Favourite Articles**
+- Users can save articles they like.
+- Stored using **Zustand**.
+- Accessible from a dedicated Favourites screen.
+
+### 📝 Private Notes**
+A powerful feature using Cloud Firestore that allows each user to save private notes linked to their account.
+-Full CRUD Functionality:
+  - Create new notes.
+  - Read a list of all personal notes, sorted from newest to oldest.
+  - Update any existing note.
+  - Delete any note, with a confirmation dialog to prevent accidental deletion.
+- Data Security: Notes are fetched based on the user's uid, ensuring that each user can only see their own notes.
+- Real-time Updates: Uses onSnapshot to instantly update the UI whenever data changes in Firestore.
+
+
+### 👤 User Profile**
+A dedicated screen that lets users view and manage their account information.
+ - Displays the current user's email and username.
+ - Ability to edit the username and save it directly to Firebase.
+ - A button to Change Password (future feature).
+ - A Logout button to securely sign out of the application.
+
+
+### 🧭 **Navigation**
+- Built using **React Navigation**
+- **Stack Navigator** → For authentication screens (Login, Sign Up) and the main app flow 
+- **Bottom Tabs** → For navigating between the primary screens (Home, Favorites, Notes, Profile).  
+
+---
+
+## 🛠️ Technologies Used
+
+- **React Native (TypeScript)**
+- **React Navigation**
+- **Firebase (Authentication & Cloud Firestore)**
+- **Zustand** (state management)
+- **Axios**
+- **react-native-safe-area-context**
+- **Kotlin Native Module**
+
+---
+
+## 🔧 Native Kotlin Integration
+
+This app also includes a simple Android-native module written in **Kotlin** to show a Toast message:
+
+```ts
+ToastExample.showToast("Added to Favourites ");
 ```
+---
 
-## Step 2: Build and run your app
+---
+## App Video
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+https://github.com/user-attachments/assets/a2d049c9-f4b3-47f7-8cee-a5f3969a32d7
