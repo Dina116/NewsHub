@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018932668866",
+    "project_id": "react-native-news-app-7f7b9",
+    "storage_bucket": "react-native-news-app-7f7b9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018932668866:android:761f75b897a8990754ce5b",
+        "android_client_info": {
+          "package_name": "com.unihub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm2DpKtr1kMqJ5DuxgJM4ePfMWcuCaKws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
