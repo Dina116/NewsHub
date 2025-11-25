@@ -8,7 +8,7 @@ It allows users to know the latest news, open full article details, and save the
 
 ## 🚀 Features
 
-### 🔐 Authentication System**
+### 🔐 **Authentication System**
 A complete authentication system built with Firebase Authentication to allow users to create secure accounts and log in.
 - Sign Up Screen:
     - Allows new users to create an account using an email, password, and username.
@@ -41,7 +41,7 @@ When the user taps any article:
 - Stored using **Zustand**.
 - Accessible from a dedicated Favourites screen.
 
-### 📝 Private Notes**
+### 📝 **Private Notes**
 A powerful feature using Cloud Firestore that allows each user to save private notes linked to their account.
 -Full CRUD Functionality:
   - Create new notes.
@@ -52,7 +52,7 @@ A powerful feature using Cloud Firestore that allows each user to save private n
 - Real-time Updates: Uses onSnapshot to instantly update the UI whenever data changes in Firestore.
 
 
-### 👤 User Profile**
+### 👤**User Profile**
 A dedicated screen that lets users view and manage their account information.
  - Displays the current user's email and username.
  - Ability to edit the username and save it directly to Firebase.
