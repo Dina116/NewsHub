@@ -22,14 +22,15 @@ type Props = NativeStackScreenProps<
   ScreenNames.ProfileScreen
 >;
 export default function ProfileScreen({ navigation }: Props) {
-  const [user, setUser] = useState(auth().currentUser);
-  const [username, setUsername] = useState(user?.displayName || '');
+  const currentUser = auth().currentUser;
+  const [username, setUsername] = useState(currentUser?.displayName || '');
+  const [email, setEmail] = useState(currentUser?.email || '');
   const [isEditingUsername, setIsEditingUsername] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(currentUser => {
       if (currentUser) {
-        setUser(currentUser);
+        setEmail(currentUser.email || '');
         setUsername(currentUser.displayName || '');
       } else {
         navigation.replace(StackNames.AuthStack, {
@@ -41,18 +42,15 @@ export default function ProfileScreen({ navigation }: Props) {
   }, [navigation]);
 
   const handleUpdateUsername = () => {
-    if (!user) return;
+    if (!currentUser) return;
     const trimmedUsername = username.trim();
     if (trimmedUsername.trim().length === 0) {
       Alert.alert('Error', 'Username cannot be empty.');
       return;
     }
-
-    user
+    currentUser
       .updateProfile({ displayName: trimmedUsername })
       .then(() => {
-        const updatedUser = { ...user, displayName: trimmedUsername };
-        setUser(updatedUser);
         Alert.alert('Success', 'Username updated successfully!');
         setIsEditingUsername(false);
       })
@@ -65,7 +63,7 @@ export default function ProfileScreen({ navigation }: Props) {
         console.log('User signed out!');
       });
   };
-  if (!user) {
+  if (!currentUser) {
     return (
       <View style={ProfileScreenStyle.container}>
         <Text>Loading...</Text>
@@ -78,7 +76,7 @@ export default function ProfileScreen({ navigation }: Props) {
         <Header />
         <View style={ProfileScreenStyle.fieldContainer}>
           <Text style={ProfileScreenStyle.label}>Email</Text>
-          <Text style={ProfileScreenStyle.value}>{user.email}</Text>
+          <Text style={ProfileScreenStyle.value}>{email}</Text>
         </View>
 
         <View style={ProfileScreenStyle.fieldContainer}>
@@ -96,7 +94,7 @@ export default function ProfileScreen({ navigation }: Props) {
           ) : (
             <View style={ProfileScreenStyle.editContainer}>
               <Text style={ProfileScreenStyle.value}>
-                {user.displayName || 'Not set'}
+                {username || 'Not set'}
               </Text>
               <Button title="Edit" onPress={() => setIsEditingUsername(true)} />
             </View>
