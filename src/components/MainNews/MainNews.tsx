@@ -17,7 +17,7 @@ import StackNames from '../../navigation/StackNames';
 const MainNews = () => {
   const [topNews, setTopNews] = useState([]);
   const { navigate } =
-    useNavigation<NavigationProp<MainStackParamList, ScreenNames.HomeScreen>>();
+    useNavigation<NavigationProp<MainStackParamList,ScreenNames.HomeScreen >>();
   useEffect(() => {
     getTopNews();
   }, []);

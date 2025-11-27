@@ -18,12 +18,3 @@ const HomeScreen = () => {
 };
 export default HomeScreen;
 
-/*
-        <TouchableOpacity
-          style={{ padding: 10, backgroundColor: 'blue', marginTop: 20 }}
-          onPress={() => {
-            navigation.navigate(ScreenNames.ArticleDetails);
-          }}
-        >
-          <Text>Go to ArticleDetails</Text>
-        </TouchableOpacity> */

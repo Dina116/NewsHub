@@ -3,6 +3,7 @@ import StackNames from '../StackNames';
 import MainTabs from '../Tabs/mainTabs';
 import SharedStack from './SharedStack';
 import AuthStack from './AuthStack';
+import { ArticleType } from '../../types/ArticleType';
 
 const stack = createNativeStackNavigator<MainStackParamList>();
 const MainStack = () => {
@@ -17,6 +18,7 @@ const MainStack = () => {
 export default MainStack;
 
 export type MainStackParamList = {
-   [StackNames.AuthStack]: undefined;
+  [StackNames.AuthStack]: undefined;
   [StackNames.MainTabs]: undefined;
+  [StackNames.SharedStack]: undefined;
 };

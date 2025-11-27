@@ -14,7 +14,6 @@ type Props = NativeStackScreenProps<
 >;
 
 export default function LoginScreen({ navigation }: Props) {
-  //const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

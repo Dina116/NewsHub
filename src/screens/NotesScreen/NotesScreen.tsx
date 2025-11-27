@@ -7,6 +7,7 @@ import Note from './Note';
 import NoteScreenStyle from './NoteScreenStyle';
 
 export default function NotesScreen() {
+
   const [notes, setNotes] = useState<Note[]>([]);
   const [newNoteText, setNewNoteText] = useState('');
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ export default function NotesScreen() {
           setLoading(false);
         },
         error => {
-          console.error('Firestore Error: ', error); // 👈 اطبعي الخطأ بالكامل
+          console.error('Firestore Error: ', error); 
           setLoading(false);
           Alert.alert(
             'Database Error',

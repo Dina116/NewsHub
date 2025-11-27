@@ -19,7 +19,7 @@ export default function ArticleDetails() {
 
   const { article } = params ?? {};
 
-  const { description, title, url, urlToImage } = article ?? {}; //description,
+  const { description, title, url, urlToImage } = article ?? {};
 
   const { addToFavList, removeFromFavList, isArticleFav } = useFavStore();
   const isFav = isArticleFav(url);

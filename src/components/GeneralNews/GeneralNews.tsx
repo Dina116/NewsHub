@@ -10,7 +10,7 @@ import GeneralNewsStyle from './GeneralNewsStyle';
 
 const GeneralNews = () => {
   const [articles, setArticles] = useState<ArticleType[]>([]);
-
+  
   const { navigate } =
     useNavigation<NavigationProp<MainStackParamList, ScreenNames.HomeScreen>>();
 
@@ -33,7 +33,7 @@ const GeneralNews = () => {
       });
   }
   function goToArticleDetails(article: ArticleType) {
-    navigate(StackNames.SharedStack, {
+    navigate(StackNames.SharedStack , {
       screen: ScreenNames.ArticleDetails,
       params: {
         article,
