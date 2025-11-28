@@ -17,23 +17,23 @@ import StackNames from '../../navigation/StackNames';
 const MainNews = () => {
   const [topNews, setTopNews] = useState([]);
   const { navigate } =
-    useNavigation<NavigationProp<MainStackParamList,ScreenNames.HomeScreen >>();
+    useNavigation<NavigationProp<MainStackParamList, ScreenNames.HomeScreen>>();
   useEffect(() => {
     getTopNews();
   }, []);
-  function getTopNews() {
-    const url = '/top-headlines?country=us';
-    get(url)
-      .then(response => {
-        console.log('Full Response:', response.data);
-        const articles = response.data?.articles.filter(
-          (article: ArticleType) => article?.urlToImage !== null,
-        );
-        setTopNews(articles);
-      })
-      .catch(error => {
-        console.log('Response Error: ', error);
-      });
+
+  async function getTopNews() {
+    try {
+      const url = '/top-headlines?country=us';
+      const response = await get(url);
+      console.log('Full Response:', response.data);
+      const articles = response.data?.articles.filter(
+        (article: ArticleType) => article?.urlToImage !== null,
+      );
+      setTopNews(articles);
+    } catch (error) {
+      console.log('Response Error: ', error);
+    }
   }
   function goToArticleDetails(article: ArticleType) {
     navigate(StackNames.SharedStack, {

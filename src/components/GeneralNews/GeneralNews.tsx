@@ -10,7 +10,7 @@ import GeneralNewsStyle from './GeneralNewsStyle';
 
 const GeneralNews = () => {
   const [articles, setArticles] = useState<ArticleType[]>([]);
-  
+
   const { navigate } =
     useNavigation<NavigationProp<MainStackParamList, ScreenNames.HomeScreen>>();
 
@@ -18,22 +18,22 @@ const GeneralNews = () => {
     getNews();
   }, []);
 
-  function getNews() {
-    const url = '/everything?domains=techcrunch.com,thenextweb.com';
-    get(url)
-      .then(response => {
-        console.log('Full Response:', response.data);
-        const articles = response.data?.articles.filter(
-          (article: ArticleType) => article?.urlToImage !== null,
-        );
-        setArticles(articles);
-      })
-      .catch(error => {
-        console.log('Response Error: ', error);
-      });
+  async function getNews() {
+    try {
+      const url = '/everything?domains=techcrunch.com,thenextweb.com';
+      const response = await get(url);
+      console.log('Full Response:', response.data);
+      const articless = response.data?.articles.filter(
+        (article: ArticleType) => article?.urlToImage !== null,
+      );
+      setArticles(articless);
+    } catch (error) {
+      console.log('Response Error: ', error);
+    }
   }
+
   function goToArticleDetails(article: ArticleType) {
-    navigate(StackNames.SharedStack , {
+    navigate(StackNames.SharedStack, {
       screen: ScreenNames.ArticleDetails,
       params: {
         article,
